@@ -14,8 +14,8 @@ def solution(n):
     
     
      
-    while num <= n*n: #행렬 수보다 작거나 같아야함, 크면 행렬 벗어남
-        array[x][y] = num # 지금 위치에 숫자 너어줌
+    while num <= n*n: #이 행렬이 다 채워질때 까지 달려보자
+        array[x][y] = num # 현재 위치를 num에 넣어줌
         num += 1 # 위치는 1씩 증가
         
         
