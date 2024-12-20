@@ -12,26 +12,27 @@ def solution(n):
     
     
      
-    while num <= n*n:
-        array[x][y] = num
-        num += 1
+    while num <= n*n: #행렬 수보다 작거나 같아야함
+        array[x][y] = num # 지금 위치에 숫자 너어줌
+        num += 1 # 위치는 1씩 증가
         
         
-        # 이동할 위치
-        dx, dy = directions[move_direction]
-        # 현재 위치에서 이동할 위치의 값 합
-        nx, ny = x+dx, y+dy
+        # 이동할 위치 (dx,dy)
+        now_x, now_y = directions[move_direction]
+        
+        # 현재 위치에서 이동할 위치의 값 합 (nx, ny)
+        later_x, later_y = x+now_x, y+now_y
         
         
         # 그 위치에 못갈수도 있으니 이동 가능한지
-        if 0<=nx<n and 0<=ny<n and array[nx][ny] == 0:
-            x,y = nx, ny
+        if 0<=later_x<n and 0<=later_y<n and array[later_x][later_y] == 0:
+            x,y = later_x, later_y
             
         else:
             # 이동이 안되는것도 있ㅔ겟지 몰라 막해
             move_direction = (move_direction+1)%4
-            dx, dy = directions[move_direction]
-            x,y = x+dx, y+dy
+            now_x, now_y = directions[move_direction]
+            x,y = x+now_x, y+now_y
             
     return array
         
