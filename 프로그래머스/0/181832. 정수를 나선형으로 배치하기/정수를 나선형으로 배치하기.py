@@ -12,27 +12,28 @@ def solution(n):
     
     
      
-    while num <= n*n: #행렬 수보다 작거나 같아야함
+    while num <= n*n: #행렬 수보다 작거나 같아야함, 크면 행렬 벗어남
         array[x][y] = num # 지금 위치에 숫자 너어줌
         num += 1 # 위치는 1씩 증가
         
         
-        # 이동할 위치 (dx,dy)
+        # 이동할 방향값 now_로 치환
         now_x, now_y = directions[move_direction]
         
-        # 현재 위치에서 이동할 위치의 값 합 (nx, ny)
+        # 현재 위치에서 이동 할 방향값 later_로 치환
         later_x, later_y = x+now_x, y+now_y
         
         
-        # 그 위치에 못갈수도 있으니 이동 가능한지
+        # 내가 이동 할 예정인 위치가 갈 수 있는 범위안에 있는지, 방문하지 않은곳인지
         if 0<=later_x<n and 0<=later_y<n and array[later_x][later_y] == 0:
+            # 만약 유효한 위치라면 아래의 식으로 업데이트
             x,y = later_x, later_y
             
         else:
-            # 이동이 안되는것도 있ㅔ겟지 몰라 막해
-            move_direction = (move_direction+1)%4
+            # 아 갔는데 못가는 길이래 다른길 찾으셈
+            move_direction = (move_direction+1)%4 #현재 위치에서 +1이동했는데 못가는 경우의수 (방법은 4가지라 나눔)
             now_x, now_y = directions[move_direction]
-            x,y = x+now_x, y+now_y
+            x,y = x+now_x, y+now_y 
             
     return array
         
