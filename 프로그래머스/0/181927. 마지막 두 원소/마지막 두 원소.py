@@ -2,9 +2,10 @@
 # 그 전 원소가 마지막 원소보다 크거나 같으면, 마지막 원소의 두 배를 리스트 추가
 def solution(num_list):
     answer = []
-    if num_list [-1]> num_list[-2]:
-        num_list.append(num_list[-1] - num_list [-2])
+    n, m = num_list [-1], num_list [-2]
+    if n> m:
+        num_list.append(n - m)
     else:
-        num_list [-2]>= num_list[-1]
-        num_list.append(num_list[-1] *2)
+        m >= n
+        num_list.append(n *2)
     return num_list
