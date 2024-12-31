@@ -1,4 +1,4 @@
-# 1
+
 
 from math import factorial as f
 
