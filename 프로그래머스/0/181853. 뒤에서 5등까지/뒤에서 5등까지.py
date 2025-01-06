@@ -1,3 +1,2 @@
 def solution(num_list):
-    sorted_list = sorted(num_list)
-    return sorted_list[:5]
+    return sorted (num_list) [:5]
