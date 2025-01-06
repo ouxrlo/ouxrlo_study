@@ -1,12 +1,19 @@
 def solution(n):
-    answer = 0  # 가장 큰 i를 저장할 변수
-    fact = 1    # fact를 1로 초기화 (1! = 1)
-    i = 1       # i는 1부터 시작
-    
-    # n보다 큰 팩토리얼을 찾을 때까지 반복
-    while fact <= n:
-        answer = i  
-        i += 1      
-        fact *= i   
-    
-    return answer 
+    # 팩토리얼 함수 정의
+    def factorial(i):
+        
+        if i == 1:
+            return 1  # 1을 반환하면 더이상 호출하지 않음
+        
+        # i * (i-1)!을 계산
+        return i * factorial(i - 1) 
+
+    i = 1 
+    while True:  
+        # 만약 i!이 n보다 크면 반복문을 멈춤
+        if factorial(i) > n:  
+            break  # i! > n 반복 종료
+        i += 1  # i를 하나씩 증가하면서 계속 팩토리얼 계산
+
+    # i가 한 번 증가 => 그 직전 값인 i-1을 반환
+    return i - 1 
