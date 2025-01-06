@@ -9,11 +9,16 @@ def solution(n):
         return i * factorial(i - 1) 
 
     i = 1 
-    while True:  
+    while True: 
+        
         # 만약 i!이 n보다 크면 반복문을 멈춤
         if factorial(i) > n:  
-            break  # i! > n 반복 종료
-        i += 1  # i를 하나씩 증가하면서 계속 팩토리얼 계산
+            
+            # i! > n 반복 종료
+            break
+            
+         # i를 하나씩 증가하면서 계속 팩토리얼 계산    
+        i += 1 
 
     # i가 한 번 증가 => 그 직전 값인 i-1을 반환
     return i - 1 
