@@ -1,8 +1,8 @@
 def solution(myString):
-    p = myString.split('x')
+    answer = myString.split('x')
     
-    pd = [i for i in p if i]
+    answer = [i for i in answer if i]
     
-    answer = sorted(pd)
+    return sorted(answer)
     
-    return answer
+    
